@@ -7,4 +7,11 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'super appli de fou';
+  isAuth: boolean = false;
+
+  constructor() {
+    setTimeout(() => {
+      this.isAuth = true;
+    }, 4000);
+  };
 }

@@ -16,6 +16,8 @@
         <app-appareil></app-appareil>
         <app-appareil></app-appareil>
       </ul>
+      <!--      [disabled] est du property binding avec une var definie dans le component principal -->
+      <button [disabled]="!isAuth" class="btn btn-success">Tout allumer</button>
     </div>
   </div>
 </div>
