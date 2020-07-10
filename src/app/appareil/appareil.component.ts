@@ -6,8 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./appareil.component.css']
 })
 export class AppareilComponent implements OnInit {
-  // Le @Input() permet de definir une instance pour chaque appareil  depuis une propriete des instance de composant ayant pour nom
-  // "appareilName"'
+  // Propriété personnalisée : @Input() permet de definir une instance pour chaque appareil  depuis une propriete des instance de
+  // composant ayant pour nom "appareilName"'
   @Input() appareilName: string;
   @Input() appareilStatus: string;
 

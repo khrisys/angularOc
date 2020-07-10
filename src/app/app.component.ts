@@ -14,6 +14,7 @@ export class AppComponent {
   appareilTwo = 'Ordinateur';
   appareilThree = 'Nas';
 
+  // Execute ce code à l'instanciation du composant
   constructor() {
     setTimeout(() => {
       this.isAuth = true;
