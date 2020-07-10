@@ -1,6 +1,15 @@
 <li class="list-group-item">
+  <div *ngIf="appareilStatus === 'eteint'"
+       style="width:20px;height:20px;background-color:red;"></div>
+  <div *ngIf="appareilStatus === 'en veille'"
+       style="width:20px;height:20px;background-color:orange;"></div>
+  <div *ngIf="appareilStatus === 'allumé'"
+       style="width:20px;height:20px;background-color:green;"></div>
   <!--  interpolation : on fait appel à une fonction pour afficher le statut d'un appareil, et non pas à la valeur d'une var-->
-  <h4>Appareil : {{appareilName}} -- Statut : {{getStatus()}}</h4>
+  <!--  Directive [ngStyle] permet d'appliquer un style en fonction de condition defini dans la methode getColor-->
+  <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
   <!--  [(ngModel)] est du two way binding. Il sert surtout dans les formulaires. Il permet d'utiliser le "property binding" et "l'event binding"-->
-  <input [(ngModel)]="appareilName" class="form-control" type="text">
+  <input [(ngModel)]="appareilName"
+         class="form-control"
+         type="text">
 </li>

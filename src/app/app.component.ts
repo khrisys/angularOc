@@ -14,6 +14,23 @@ export class AppComponent {
   appareilTwo = 'Ordinateur';
   appareilThree = 'Nas';
 
+
+  // Array destiné à l'utilisation de *ngFor
+  users = [
+    {
+      name: 'kiki',
+      status: 'codeur'
+    },
+    {
+      name: 'toto',
+      status: 'vip'
+    },
+    {
+      name: 'tata',
+      status: 'farmer'
+    }
+  ];
+
   // Execute ce code à l'instanciation du composant
   constructor() {
     setTimeout(() => {
