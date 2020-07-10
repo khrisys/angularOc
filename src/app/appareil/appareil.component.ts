@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-appareil',
@@ -6,8 +6,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./appareil.component.css']
 })
 export class AppareilComponent implements OnInit {
-  appareilName: string = 'Machine à laver';
-  appareilStatus: string = 'Eteint';
+  // Le @Input() permet de definir une instance pour chaque appareil  depuis une propriete des instance de composant ayant pour nom
+  // "appareilName"'
+  @Input() appareilName: string;
+  @Input() appareilStatus: string;
 
   constructor() {
   }

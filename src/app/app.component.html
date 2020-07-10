@@ -12,11 +12,24 @@
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil></app-appareil>
-        <app-appareil></app-appareil>
-        <app-appareil></app-appareil>
+  
+        <!--  Ici, chaque ligne ci dessous est une instance de appareil. Ca signifie que le html de appareil apparait dans chaque ligne-->
+  
+        <!-- 1. Grace au decorateur @Input dans le fichier "appareil.component.ts", on créé une nouvelle instance d'appareil.
+         2. Mais on peut aussi lier chaque appreil avec un property binding en les declarat dans "app.component.ts"
+         3. Enfin, on peut ecrire directement la valeur d'un element de property binding, mais alors, il faudra utiliser des quotes au
+         milieu de doubles quotes pour que ce soit pris en compte. C'est le cas pour [appareilStatut] -->
+        <app-appareil [appareilStatus]="'allumé'" appareilName="Machine à laver"></app-appareil>
+        <app-appareil [appareilStatus]="'eteint'" appareilName="Frigo"></app-appareil>
+        <app-appareil [appareilStatus]="'en veille'" appareilName="Congelo"></app-appareil>
+        <app-appareil [appareilName]="appareilOne" [appareilStatus]="'eteint'"></app-appareil>
+        <app-appareil [appareilName]="appareilTwo" [appareilStatus]="'allumé'"></app-appareil>
+        <app-appareil [appareilName]="appareilThree" [appareilStatus]="'eteint'"></app-appareil>
       </ul>
-      <!--      [disabled] est du property binding avec une var definie dans le component principal -->
+  
+      <!--      [disabled] est du "property binding" avec une var definie dans le component principal -->
+      <!--(click) est du "event binding", ce qui permet de demander de faire quelque chose dans le typescript à partir du html. C'est l'inverse
+      du "property binding" -->
       <button (click)="onAllumer()" [disabled]="!isAuth" class="btn btn-success">Tout allumer</button>
     </div>
   </div>

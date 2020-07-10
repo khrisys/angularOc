@@ -9,6 +9,11 @@ export class AppComponent {
   title = 'super appli de fou';
   isAuth: boolean = false;
 
+  // Utilisation de ces var pour le property binding (donc, entre crochet)
+  appareilOne = 'Liseuse';
+  appareilTwo = 'Ordinateur';
+  appareilThree = 'Nas';
+
   constructor() {
     setTimeout(() => {
       this.isAuth = true;
