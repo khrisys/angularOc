@@ -11,6 +11,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
+      <p>Mise à jour : {{lastUpdate  | async | date: 'EEEE dd  MMMM yyyy' | uppercase}}</p>
       <ul class="list-group">
   
         <!--  Ici, chaque ligne ci dessous est une instance de appareil. Ca signifie que le html de appareil apparait dans chaque ligne-->

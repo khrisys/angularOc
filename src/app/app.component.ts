@@ -8,7 +8,15 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'super appli de fou';
   isAuth: boolean = false;
-
+  // lastUpdate = new Date();
+  lastUpdate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
   // Utilisation de ces var pour le property binding (donc, entre crochet)
   appareilOne = 'Liseuse';
   appareilTwo = 'Ordinateur';
