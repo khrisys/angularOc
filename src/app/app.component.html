@@ -54,6 +54,14 @@
       </ul>
     </div>
   </div>
+  <button (click)="retireAll()"
+          [disabled]="!isAuth"
+          class="btn btn-danger">Tous à la retraite !
+  </button>
+  <button (click)="activeAll()"
+          [disabled]="!isAuth"
+          class="btn btn-success">Allez hop! Au taf!
+  </button>
 </div>
 
 <!-- Toolbar -->

@@ -1,8 +1,8 @@
 <!--Directive pour changer de classe bootstrap en fonction d'une cvondition-->
 <li [ngClass]="{'list-group-item': true,
-                'list-group-item-success': userStatus === 'vip',
-                'list-group-item-danger': userStatus === 'codeur',
-                'list-group-item-warning': userStatus === 'farmer'}">
+                'list-group-item-success': userStatus === 'actif',
+                'list-group-item-warning': userStatus === 'stagiaire',
+                'list-group-item-danger': userStatus === 'retraité'}">
   <!--  interpolation : on fait appel à une fonction pour afficher le statut d'un appareil, et non pas à la valeur d'une var-->
   <h4>Utilisateur : {{userName}} -- Statut : {{userStatus}}</h4>
   <!--  [(ngModel)] est du two way binding. Il sert surtout dans les formulaires. Il permet d'utiliser le "property binding" et "l'event binding"-->
