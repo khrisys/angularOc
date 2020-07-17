@@ -35,4 +35,17 @@ export class UserService {
     }
   }
 
+  /**
+   * Défini un seul user à la retraite
+   */
+  retireOne(index: number) {
+    this.users[index].status = 'retraité';
+  }
+
+  /**
+   * Défini un user comme actif
+   */
+  activeOne(index: number) {
+    this.users[index].status = 'actif';
+  }
 }

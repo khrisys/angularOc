@@ -9,4 +9,12 @@
   <input [(ngModel)]="userName"
          class="form-control"
          type="text">
+  <button (click)="onActif()"
+          [disabled]="userStatus === 'actif'"
+          class="btn btn-success">Activer
+  </button>
+  <button (click)="onRetire()"
+          [disabled]="userStatus === 'retraité'"
+          class="btn btn-danger">Mis à la retraite
+  </button>
 </li>
