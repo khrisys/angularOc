@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AppareilService} from './services/appareil.service';
 
 @Component({
   selector: 'app-root',
@@ -39,8 +40,12 @@ export class AppComponent {
     }
   ];
 
-  // Execute ce code à l'instanciation du composant
-  constructor() {
+  /**
+   * Execute ce code à l'instanciation du composant
+   *
+   * @param appareilService : Injection d'une instance du service des appareil dans la constructeur
+   */
+  constructor(private appareilService: AppareilService) {
     setTimeout(() => {
       this.isAuth = true;
     }, 4000);
