@@ -28,9 +28,10 @@ export class AppComponent implements OnInit {
   appareils: any[];
 
   /**
-   * Execute ce code à l'instanciation du composant
+   * Le constructeur est executé à l'instanciation du composant
    *
-   * @param appareilService : Injection d'une instance du service des appareils et des users dans la constructeur
+   * @param appareilService : Injection d'une instance du service des appareils
+   * @param userService : injection d'une instance de service des users
    */
   constructor(private appareilService: AppareilService, private userService: UserService) {
     setTimeout(() => {
@@ -40,17 +41,18 @@ export class AppComponent implements OnInit {
 
   /**
    * Executé au moment de la creation du component, mais apres l'execution du constructor
+   * Initialise un service
    */
   ngOnInit(): void {
     this.users = this.userService.users;
   }
-  ;
+
 
   onAllumer() {
     console.log('allumé');
   }
 
-  // met tous les users à la retraite en appelant la methode retireall() du service des Users
+  // Met tous les users à la retraite en appelant la methode retireall() du service des Users
   retireAll() {
     this.userService.retireAll();
   }
