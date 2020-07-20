@@ -11,6 +11,18 @@
         </div>
       </div>
     </nav>
+    <!--    Ajout du composant User. Pour utiliser le routing, on utilise pas le nom du composant car le routing est defini, on appelle
+    simplement la balise 'router-outlet-->
+    <div class="col-xs-12"
+         style="border: #24292e solid thin; margin: 1em">
+      <router-outlet></router-outlet>
+    </div>
+    <!--    Ajout du composant user-view avec une baliser, en lieu te place du code ecrit en dur, désormais deporté dans le composant
+    user-view-->
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+  
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <p>Mise à jour : {{lastUpdate  | async | date: 'EEEE dd  MMMM yyyy' | uppercase}}</p>
@@ -35,7 +47,7 @@
         <app-appareil [appareilName]="appareilThree"
                       [appareilStatus]="'eteint'"></app-appareil>
       </ul>
-  
+    
       <!-- [disabled] est du "property binding" avec une var definie dans le component principal -->
       <!--(click) est du "event binding", ce qui permet de demander de faire quelque chose dans le typescript à partir du html. C'est l'inverse
       du "property binding" -->
@@ -47,11 +59,6 @@
               [disabled]="!isAuth"
               class="btn btn-danger">Tout éteindre
       </button>
-    </div>
-  
-    <!--    Ajout du composant user-view, à la place du code désormais deporté dans le composant-->
-    <div class="col-xs-12">
-      <app-user-view></app-user-view>
     </div>
   </div>
 </div>

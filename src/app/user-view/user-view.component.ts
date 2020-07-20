@@ -35,14 +35,14 @@ export class UserViewComponent implements OnInit {
   // ===============================================================
 
   // Met tous les users à la retraite en appelant la methode retireall() du service des Users
-  retireAll() {
-    this.userService.retireAll();
+  activeAll() {
+    this.userService.activeAll();
   }
 
   // Met tous les Users comme etant actifs en appelant la methode activeAll() du services des Users
-  activeAll() {
+  retireAll() {
     if (confirm('Etes vous sur de vouloir envoyer tous les users à la retraite ?')) {
-      this.userService.activeAll();
+      this.userService.retireAll();
     } else {
       return null;
     }

@@ -1,24 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h2>Utilisateurs</h2>
-      <ul class="list-group">
-        <!-- Directive pour les boucles. Ne pas oublier * avant *ngFor
-        Grace à la var "i", on recupere l'index de chaque element du tableau sur lequel on boucle avec *ngFor. On doit decalrer cet index
-         dans la classe users.component.ts pour pouvoir utiliser le property binding. Ceci permet de personnaliser chaque element de ce tableau (ici en lui ajoutant une methode via un bouton) -->
-        <app-users *ngFor="let user of users; let i = index"
-                   [indexOfUser]="i"
-                   [userName]="user.name"
-                   [userStatus]="user.status"></app-users>
-      </ul>
-    </div>
-  </div>
-  <button (click)="retireAll()"
-          [disabled]="!isAuth"
-          class="btn btn-danger">Tous à la retraite !
-  </button>
-  <button (click)="activeAll()"
-          [disabled]="!isAuth"
-          class="btn btn-success">Allez hop! Au taf!
-  </button>
+<div class="col-xs-12">
+  <h2>Utilisateurs</h2>
+  <ul class="list-group">
+    
+    <!-- Directive pour les boucles. Ne pas oublier * avant *ngFor
+    Grace à la var "i", on recupere l'index de chaque element du tableau sur lequel on boucle avec *ngFor. On doit decalrer cet index
+     dans la classe users.component.ts pour pouvoir utiliser le property binding. Ceci permet de personnaliser chaque element de ce tableau (ici en lui ajoutant une methode via un bouton) -->
+    <app-users *ngFor="let user of users; let i = index"
+               [indexOfUser]="i"
+               [userName]="user.name"
+               [userStatus]="user.status"></app-users>
+  </ul>
 </div>
+
+<button (click)="activeAll()"
+        [disabled]="!isAuth"
+        class="btn btn-success">Allez hop! Au taf!
+</button>
+<button (click)="retireAll()"
+        [disabled]="!isAuth"
+        class="btn btn-danger">Tous à la retraite !
+</button>
+

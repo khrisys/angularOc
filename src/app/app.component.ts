@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from './services/user.service';
 import {AppareilService} from './services/appareil.service';
 
 @Component({
@@ -8,9 +7,9 @@ import {AppareilService} from './services/appareil.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   title = 'super appli de fou';
   isAuth: boolean = false;
-  // lastUpdate = new Date();
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
     setTimeout(
@@ -19,13 +18,12 @@ export class AppComponent implements OnInit {
       }, 2000
     );
   });
+
   // Utilisation de ces var pour le property binding (donc, entre crochet)
   appareilOne = 'Liseuse';
   appareilTwo = 'Ordinateur';
   appareilThree = 'Nas';
 
-  users: any[];
-  appareils: any[];
 
   /**
    * Le constructeur est executé à l'instanciation du composant
@@ -33,7 +31,7 @@ export class AppComponent implements OnInit {
    * @param appareilService : Injection d'une instance du service des appareils
    * @param userService : injection d'une instance de service des users
    */
-  constructor(private appareilService: AppareilService, private userService: UserService) {
+  constructor(private appareilService: AppareilService) {
     setTimeout(() => {
       this.isAuth = true;
     }, 4000);
@@ -44,7 +42,6 @@ export class AppComponent implements OnInit {
    * Initialise un service
    */
   ngOnInit(): void {
-    // this.users = this.userService.users;
   }
 
 
@@ -55,14 +52,4 @@ export class AppComponent implements OnInit {
   onEteindre() {
     console.log('éteint');
   }
-
-  /*  // Met tous les users à la retraite en appelant la methode retireall() du service des Users
-   retireAll() {
-   this.userService.retireAll();
-   }
-
-   // Met tous les Users comme etant actifs en appelant la methode activeAll() du services des Users
-   activeAll() {
-   this.userService.activeAll();
-   }*/
 }

@@ -9,6 +9,15 @@ import {AppareilService} from './services/appareil.service';
 import {UserService} from './services/user.service';
 import {AuthComponent} from './auth/auth.component';
 import {UserViewComponent} from './user-view/user-view.component';
+import {RouterModule, Routes} from '@angular/router';
+
+// Declaration des routes correspondant aux composant que l'on appelle via les URLs'
+const appRoutes: Routes = [
+  {path: 'users', component: UserViewComponent},
+  {path: 'auth', component: AuthComponent},
+  {path: 'user', component: UsersComponent},
+  {path: '', component: UserViewComponent}
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +29,9 @@ import {UserViewComponent} from './user-view/user-view.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes) //Ca dit que toutes les routes qu'on veut enregistrer dans ce projet se trouvent dans la const
+    // 'appRoutes'
   ],
   providers: [
     // Injection du service au niveau du module : une seule instance crééé
@@ -29,4 +40,7 @@ import {UserViewComponent} from './user-view/user-view.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
+
