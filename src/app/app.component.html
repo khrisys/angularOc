@@ -1,35 +1,42 @@
+<!--Barre de navigation-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Authentification</a></li>
+        <li class="active"><a href="#">Utilisateur</a></li>
+        <li class="active"><a href="#">Utilisateurs</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Authentification</a></li>
-            <li class="active"><a href="#">Appareils</a></li>
-            <li class="active"><a href="#">Utilisateurs</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    
     <!--    Ajout du composant User. Pour utiliser le routing, on utilise pas le nom du composant car le routing est defini, on appelle
     simplement la balise 'router-outlet-->
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+    <!--    Ajout du composant user-view avec la balise router-outlet. Cette balise  va respetcer le routing declaré dans le composant
+    principal-->
+    <div class="col-xs-12">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <!--    Code en dur des "Appareils" laissés pour avoir une reference des premiers pas dans Angular du cours OC. ce code fait
+    reference au composant ""appareil" et j'ai qu'à regarder le lien entre ce code et le composant appreil pour voir l'interpolation, le
+    property binding , two way bindung, etc.. -->
     <div class="col-xs-12"
          style="border: #24292e solid thin; margin: 1em">
-      <router-outlet></router-outlet>
-    </div>
-    <!--    Ajout du composant user-view avec une baliser, en lieu te place du code ecrit en dur, désormais deporté dans le composant
-    user-view-->
-    <div class="col-xs-12">
-      <router-outlet></router-outlet>
-    </div>
-  
-    <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <p>Mise à jour : {{lastUpdate  | async | date: 'EEEE dd  MMMM yyyy' | uppercase}}</p>
       <ul class="list-group">
-  
+        
         <!--  Ici, chaque ligne ci dessous est une instance de appareil. Ca signifie que le html de appareil apparait dans chaque ligne-->
-  
+        
         <!-- 1. Grace au decorateur @Input dans le fichier "appareil.component.ts", on créé une nouvelle instance d'appareil.
          2. Mais on peut aussi lier chaque appreil avec un property binding en les declarat dans "app.component.ts"
          3. Enfin, on peut ecrire directement la valeur d'un element de property binding, mais alors, il faudra utiliser des quotes au
@@ -47,7 +54,7 @@
         <app-appareil [appareilName]="appareilThree"
                       [appareilStatus]="'eteint'"></app-appareil>
       </ul>
-    
+      
       <!-- [disabled] est du "property binding" avec une var definie dans le component principal -->
       <!--(click) est du "event binding", ce qui permet de demander de faire quelque chose dans le typescript à partir du html. C'est l'inverse
       du "property binding" -->
