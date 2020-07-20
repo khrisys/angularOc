@@ -3,9 +3,11 @@
   <div class="container-fluid">
     <div class="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Authentification</a></li>
-        <li class="active"><a href="#">Utilisateur</a></li>
-        <li class="active"><a href="#">Utilisateurs</a></li>
+        <!-- RouterLinkActive permet de surligner la partie du menu correspondant à la page actuellement affichée
+             routerLink permet de mettre en place la navigation entre les pages des composants sans rechargement de page = SPA-->
+        <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
+        <li routerLinkActive="active"><a routerLink="user">Utilisateur</a></li>
+        <li routerLinkActive="active"><a routerLink="users">Utilisateurs</a></li>
       </ul>
     </div>
   </div>

@@ -10,6 +10,7 @@ import {UserService} from './services/user.service';
 import {AuthComponent} from './auth/auth.component';
 import {UserViewComponent} from './user-view/user-view.component';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthService} from './services/auth.service';
 
 // Declaration des routes correspondant aux composant que l'on appelle via les URLs'
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
   providers: [
     // Injection du service au niveau du module : une seule instance crééé
     AppareilService,
-    UserService
+    UserService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
