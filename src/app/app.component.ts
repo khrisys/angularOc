@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
    * Initialise un service
    */
   ngOnInit(): void {
-    this.users = this.userService.users;
+    // this.users = this.userService.users;
   }
 
 
@@ -52,13 +52,17 @@ export class AppComponent implements OnInit {
     console.log('allumé');
   }
 
-  // Met tous les users à la retraite en appelant la methode retireall() du service des Users
-  retireAll() {
-    this.userService.retireAll();
+  onEteindre() {
+    console.log('éteint');
   }
 
-  // Met tous les Users comme etant actifs en appelant la methode activeAll() du services des Users
-  activeAll() {
-    this.userService.activeAll();
-  }
+  /*  // Met tous les users à la retraite en appelant la methode retireall() du service des Users
+   retireAll() {
+   this.userService.retireAll();
+   }
+
+   // Met tous les Users comme etant actifs en appelant la methode activeAll() du services des Users
+   activeAll() {
+   this.userService.activeAll();
+   }*/
 }
