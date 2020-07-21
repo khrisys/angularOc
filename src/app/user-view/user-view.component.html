@@ -6,6 +6,7 @@
     Grace à la var "i", on recupere l'index de chaque element du tableau sur lequel on boucle avec *ngFor. On doit decalrer cet index
      dans la classe users.component.ts pour pouvoir utiliser le property binding. Ceci permet de personnaliser chaque element de ce tableau (ici en lui ajoutant une methode via un bouton) -->
     <app-users *ngFor="let user of users; let i = index"
+               [id]="user.id"
                [indexOfUser]="i"
                [userName]="user.name"
                [userStatus]="user.status"></app-users>

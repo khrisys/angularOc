@@ -6,6 +6,7 @@
   
   <!--  interpolation : on fait appel à une fonction pour afficher le statut d'un appareil, et non pas à la valeur d'une var-->
   <h2>Utilisateur : {{userName}} -- Statut : {{userStatus}}</h2>
+  <a [routerLink]="[id]">Detail</a>
   
   <!--  [(ngModel)] est du two way binding. Il sert surtout dans les formulaires. Il permet d'utiliser le "property binding" et "l'event binding"-->
   <input [(ngModel)]="userName"

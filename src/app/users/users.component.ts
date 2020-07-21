@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   // recupere l'index d'un tableau de User. Est necessaire si on veut retrouver un element precis d'un tableau d'objet que l'in recupere
   // depuis l'appel vers une API. Cela permet d'effectuer un traitement sur un composant precis dans un tab d'objet.
   @Input() indexOfUser: number;
+  @Input() id: number;
 
   /**
    * Instanciation d'un composant User
