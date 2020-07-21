@@ -11,12 +11,14 @@ import {AuthComponent} from './auth/auth.component';
 import {UserViewComponent} from './user-view/user-view.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthService} from './services/auth.service';
+import {SingleUserComponent} from './single-user/single-user.component';
 
-// Declaration des routes correspondant aux composant que l'on appelle via les URLs'
+// Declaration des routes correspondant aux composant que l'on appelle grace aux URLs'
 const appRoutes: Routes = [
   {path: 'users', component: UserViewComponent},
   {path: 'auth', component: AuthComponent},
   {path: 'user', component: UsersComponent},
+  {path: 'users/:id', component: SingleUserComponent},
   {path: '', component: UserViewComponent}
 ];
 
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     UsersComponent,
     AppareilComponent,
     AuthComponent,
-    UserViewComponent
+    UserViewComponent,
+    SingleUserComponent
   ],
   imports: [
     BrowserModule,

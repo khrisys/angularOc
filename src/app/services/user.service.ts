@@ -4,18 +4,33 @@ export class UserService {
   // Array utilisé avec *ngFor
   users = [
     {
+      id: 1,
       name: 'kiki',
       status: 'retraité'
     },
     {
+      id: 2,
       name: 'toto',
       status: 'retraité'
     },
     {
+      id: 3,
       name: 'tata',
       status: 'actif'
     }
   ];
+
+  /**
+   * Retourne l'objet User par son id, id qui est passé en argument dans l'url
+   *
+   * @param id
+   */
+  getUserById(id: number) {
+    const user = this.users.find((userObject) => {
+      return userObject.id === id;
+    });
+    return user;
+  }
 
   /**
    * Defini tous les users à la retraite
