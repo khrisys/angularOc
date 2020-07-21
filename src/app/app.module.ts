@@ -14,6 +14,7 @@ import {AuthService} from './services/auth.service';
 import {SingleUserComponent} from './single-user/single-user.component';
 import {Error404Component} from './error404/error404.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {EditUserComponent} from './edit-user/edit-user.component';
 
 /**
  * Declaration des routes correspondant aux composant que l'on appelle grace aux URLs
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
   {path: 'users/:id', canActivate: [AuthGuardService], component: SingleUserComponent},
   {path: '', component: UserViewComponent},
+  {path: 'edit-user', canActivate: [AuthGuardService], component: EditUserComponent},
   {path: 'not-found', component: Error404Component},
   {path: '**', redirectTo: '/not-found'} // path wildcard : redirection vers la page 404. IL EST ESSENTIEL DE METTRE LE PATH WILDCARD A
   // LA FIN DES PATH, car Angular regarde les path dans l'rodre de declaration. Si le wildcard est au milieu du tab de path, si Angular
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     AuthComponent,
     UserViewComponent,
     SingleUserComponent,
-    Error404Component
+    Error404Component,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
