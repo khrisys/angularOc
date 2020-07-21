@@ -86,12 +86,33 @@ export class UserService {
   }
 
   /**
-   * Défini un user comme actif
+   * Défini un user précis comme actif
    * Avec la couche d'abstraction entre données recues et traitement dans l'appli, on fait emettre le Subject. Ainsi, les components qui
    * se sont souscris à ce subject verront le changement automatiquement.
+   *
+   * @param index : index de l'user dans la liste json d'objets User
    */
   activeOne(index: number) {
     this.users[index].status = 'actif';
     this.emitUserSubject();
+  }
+
+  /**
+   * Methode d'edition permettant d'ajouter un user à la liste des users
+   *
+   * @param name
+   * @param status
+   */
+  addUser(name: string, status: string) {
+    const userObject = {id: 0, name: '', status: ''};
+
+    // On recupere l'id du dernier element de la liste (avec le length -1) ausuel on rajoute 1 pour incrementer l'id
+    userObject.id = this.users[(this.users.length - 1)].id + 1;
+    userObject.name = name;
+    userObject.status = status;
+    this.users.push(userObject);
+    // On emet le Subject qui fait appel à la couche d'abstraction des données
+    this.emitUserSubject();
+
   }
 }
