@@ -7,7 +7,7 @@ import {AuthService} from './auth.service';
 /**
  * CanActivate est une interface qui oblige à redefinir la methode canActivate
  *
- * @Injectable : permet d'injecter un service dans un autre service
+ * @Injectable : permet de preparer un service et faire en sorte qu'on puisse y injecter un autre service
  */
 @Injectable()
 export class AuthGuardService implements CanActivate {

@@ -48,7 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
    * Executé au moment de la creation du component, mais apres l'execution du constructor
    *
    * Dans ce cas, on initialise un observable avec un interval d'une seconde. Il faut importer Observable, mais aussi
-   * 'rxjs/add/observable/interval', et surtout, avec les MAJ qu'il y a eu dans RxJS, il faut installer le package 'rxjs-compat' pour
+   * 'rxjs/Rx', et surtout, avec les MAJ qu'il y a eu dans RxJS, il faut installer le package 'rxjs-compat' pour
    * pouvoir utiliser cette methode 'interval'
    *
    * Pour eviter tout pb lorsqu'on utilise des Observable perso, il est vivement conseillé d'utiliser la souscription via l'objet
