@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-user-view',
@@ -9,6 +10,7 @@ import {UserService} from '../services/user.service';
 export class UserViewComponent implements OnInit {
 
   users: any[];
+  userSubscription: Subscription;
   isAuth: boolean = false;
 
   /*  lastUpdate = new Promise((resolve, reject) => {
@@ -26,8 +28,19 @@ export class UserViewComponent implements OnInit {
     }, 2000);
   }
 
+  /**
+   * Avec la couche d'abstraction aux données recues (tableau json), on ne peut plus acceder directement aux données. Ainsi, on associe
+   * nos données souscrites à notre var locale 'users'.
+   * Puis, apres la sousscription, on va faire emettre le subject (le subject va emettre la copie des users du service).
+   */
   ngOnInit(): void {
-    this.users = this.userService.users;
+    // this.users = this.userService.users;
+    this.userSubscription = this.userService.userSubject.subscribe(
+      (users: any[]) => {
+        this.users = users;
+      }
+    );
+    this.userService.emitUserSubject();
   }
 
   // ===============================================================
