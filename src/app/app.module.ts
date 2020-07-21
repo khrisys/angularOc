@@ -12,6 +12,7 @@ import {UserViewComponent} from './user-view/user-view.component';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthService} from './services/auth.service';
 import {SingleUserComponent} from './single-user/single-user.component';
+import {Error404Component} from './error404/error404.component';
 
 // Declaration des routes correspondant aux composant que l'on appelle grace aux URLs'
 const appRoutes: Routes = [
@@ -19,7 +20,11 @@ const appRoutes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'user', component: UsersComponent},
   {path: 'users/:id', component: SingleUserComponent},
-  {path: '', component: UserViewComponent}
+  {path: '', component: UserViewComponent},
+  {path: 'not-found', component: Error404Component},
+  {path: '**', redirectTo: '/not-found'} // path wildcard : redirection vers la page 404. IL EST ESSENTIEL DE METTRE LE PATH WILDCARD A
+  // LA FIN DES PATH, car Angular regarde les path dans l'rodre de declaration. Si le wildcard est au milieu du tab de path, si Angular
+  // tombe sur le wildcard, n'importe quelle route correspond au wildcard, et donc, tous les urls rentrés vont correspondre à ce wildcard
 ];
 
 @NgModule({
@@ -29,7 +34,8 @@ const appRoutes: Routes = [
     AppareilComponent,
     AuthComponent,
     UserViewComponent,
-    SingleUserComponent
+    SingleUserComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
