@@ -13,13 +13,18 @@ import {RouterModule, Routes} from '@angular/router';
 import {AuthService} from './services/auth.service';
 import {SingleUserComponent} from './single-user/single-user.component';
 import {Error404Component} from './error404/error404.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
-// Declaration des routes correspondant aux composant que l'on appelle grace aux URLs'
+/**
+ * Declaration des routes correspondant aux composant que l'on appelle grace aux URLs
+ * La param canActivate correspond au guard qui empeche tous utilisateurs non connectés d'acceder à cette route
+ */
+
 const appRoutes: Routes = [
-  {path: 'users', component: UserViewComponent},
+  {path: 'users', canActivate: [AuthGuardService], component: UserViewComponent},
   {path: 'auth', component: AuthComponent},
-  {path: 'user', component: UsersComponent},
-  {path: 'users/:id', component: SingleUserComponent},
+  {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
+  {path: 'users/:id', canActivate: [AuthGuardService], component: SingleUserComponent},
   {path: '', component: UserViewComponent},
   {path: 'not-found', component: Error404Component},
   {path: '**', redirectTo: '/not-found'} // path wildcard : redirection vers la page 404. IL EST ESSENTIEL DE METTRE LE PATH WILDCARD A
@@ -47,7 +52,8 @@ const appRoutes: Routes = [
     // Injection du service au niveau du module : une seule instance crééé
     AppareilService,
     UserService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
