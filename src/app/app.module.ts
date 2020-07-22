@@ -15,6 +15,7 @@ import {SingleUserComponent} from './single-user/single-user.component';
 import {Error404Component} from './error404/error404.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {EditUserComponent} from './edit-user/edit-user.component';
+import {UserModelListComponent} from './user-model-list/user-model-list.component';
 
 /**
  * Declaration des routes correspondant aux composant que l'on appelle grace aux URLs
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     UserViewComponent,
     SingleUserComponent,
     Error404Component,
-    EditUserComponent
+    EditUserComponent,
+    UserModelListComponent
   ],
   imports: [
     BrowserModule,
