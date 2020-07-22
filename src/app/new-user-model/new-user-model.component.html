@@ -1,0 +1,64 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <!--- Le formulaire est de type formGroup dans la methode reactive de Angular (et non pas ngForm). Il n'y a pas de var locale comme
+  dans la methode template, ici, on va se lier à l'attr FormGroup, qui correspond au formgroup qu'on a créé dans le fichier TS
+  --->
+  <form (ngSubmit)="onSubmitForm()"
+        [formGroup]="userModelForm">
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <!--- Les formControleName dans les differents attr du formualire doivent correspondre aux attr créés dansle fochier TS, dans la
+      methode init>Form(). --->
+      <input class="form-control"
+             formControlName="firstName"
+             id="firstName"
+             type="text">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input class="form-control"
+             formControlName="lastName"
+             id="lastName"
+             type="text">
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse e-mail</label>
+      <input class="form-control"
+             formControlName="email"
+             id="email"
+             type="text">
+    </div>
+    <div class="form-group">
+      <label for="drinkPreference">Quelle boisson préférez-vous ?</label>
+      <select class="form-control"
+              formControlName="drinkPreference"
+              id="drinkPreference">
+        <option value="jus d\'orange">Jus d'orange</option>
+        <option value="jus de mangue">Jus de mangue</option>
+      </select>
+    </div>
+    <!--- Ici, la directive n'est pas formControlName mais formArrayName. Ceci pour verifier qu'il s'agit bien d'un array correspondant
+    aux hobbies que j'ai créé dans le fichier TS. On créé une div pour chaque control dans le formArray grace à *ngFor. Il faut aussi
+    recuperer l'index de chasque control à l'interieur du formArray car on veut qu'il y ait un formControlName different pour chaque
+    hobby. Neanmoins, pour utiliser l'index qui s'agit d'une var (et non pas juste de la lettre i), on va lier formControlName à  l'index
+     en mettant entre crochet [formControlName];
+     ON rajoute egalement un bouton, pas de type submit pour ne pas valider l'ensemble du formulaire, pour ajouter un champ text pour un
+     hobby --->
+    <div formArrayName="hobbies">
+      <h3>Vos hobbies</h3>
+      <div *ngFor="let hobbyControl of getHobbies().controls; let i = index"
+           class="form-group">
+        <div [formControlName]="i"
+             class="form-control"
+             type="text"></div>
+      </div>
+      <button (click)="onAddHobby()"
+              class="btn btn-success"
+              type="button">Ajouter un hobby
+      </button>
+    </div>
+    <button [disabled]="userModelForm.invalid"
+            class="btn btn-primary"
+            type="submit">Soumettre
+    </button>
+  </form>
+</div>
