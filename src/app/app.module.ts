@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {UsersComponent} from './users/users.component';
 import {AppareilComponent} from './appareil/appareil.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppareilService} from './services/appareil.service';
 import {UserService} from './services/user.service';
 import {AuthComponent} from './auth/auth.component';
@@ -52,6 +52,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes) //Ca dit que toutes les routes qu'on veut enregistrer dans ce projet se trouvent dans la const
     // 'appRoutes'
   ],
