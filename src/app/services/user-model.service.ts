@@ -4,7 +4,9 @@ import {Subject} from 'rxjs';
 export class UserModelService {
 
   userModelSubject = new Subject<UserModel[]>();
-  private users: UserModel[] = [];
+  private users: UserModel[] = [
+    {firstName: 'joe', lastName: 'leboss', email: 'baba@joe.leboss', drinkPreference: 'cidre', hobbies: ['lecture', 'jeux videos']}
+  ];
 
   /**
    * Couche d'abstraction entre données recues et traitement dans l'appli. Emet une copie des données UserModel.

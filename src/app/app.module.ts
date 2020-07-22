@@ -16,6 +16,7 @@ import {Error404Component} from './error404/error404.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import {EditUserComponent} from './edit-user/edit-user.component';
 import {UserModelListComponent} from './user-model-list/user-model-list.component';
+import {UserModelService} from './services/user-model.service';
 
 /**
  * Declaration des routes correspondant aux composant que l'on appelle grace aux URLs
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'auth', component: AuthComponent},
   {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
   {path: 'users/:id', canActivate: [AuthGuardService], component: SingleUserComponent},
-  {path: '', component: UserViewComponent},
+  {path: 'user', component: UserViewComponent},
+  {path: 'user-model-list', component: UserModelListComponent},
   {path: 'edit-user', canActivate: [AuthGuardService], component: EditUserComponent},
   {path: 'not-found', component: Error404Component},
   {path: '**', redirectTo: '/not-found'} // path wildcard : redirection vers la page 404. IL EST ESSENTIEL DE METTRE LE PATH WILDCARD A
@@ -58,7 +60,8 @@ const appRoutes: Routes = [
     AppareilService,
     UserService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UserModelService
   ],
   bootstrap: [AppComponent]
 })
