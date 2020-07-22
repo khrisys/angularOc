@@ -42,8 +42,8 @@ export class NewUserModelComponent implements OnInit {
     this.userModelForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required, Validators.email],
-      drinkPreferences: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      drinkPreference: ['', Validators.required],
       hobbies: this.formBuilder.array([])
     });
   }
@@ -61,7 +61,7 @@ export class NewUserModelComponent implements OnInit {
   onSubmitForm() {
     const formValue = this.userModelForm.value;
     const newModelUser = new UserModel(
-      formValue['firstName'], formValue['lastName'], formValue['email'], formValue['drinkPreferences'], formValue['hobbies'] ? formValue['hobbies'] : []
+      formValue['firstName'], formValue['lastName'], formValue['email'], formValue['drinkPreference'], formValue['hobbies'] ? formValue['hobbies'] : []
     );
     this.userModelService.addUserModel(newModelUser);
     this.router.navigate(['/user-model-list']);
@@ -70,7 +70,7 @@ export class NewUserModelComponent implements OnInit {
   /**
    * Pour des raisons de typage strict, on retourne le formArray sous forme de formArray
    */
-  getHobbies() {
+  getHobbies(): FormArray {
     return this.userModelForm.get('hobbies') as FormArray;
   }
 
@@ -81,7 +81,7 @@ export class NewUserModelComponent implements OnInit {
    * La methode getHobbies() utilisée ici permet d'avoir acces au formArray.
    */
   onAddHobby() {
-    const newHobbyControl = this.formBuilder.control('', Validators.required);
+    const newHobbyControl = this.formBuilder.control(null, Validators.required);
     this.getHobbies().push(newHobbyControl);
   }
 }
