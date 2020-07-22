@@ -142,4 +142,25 @@ export class UserService {
       console.log('erreur d\'enregistrement dans firebase !');
     });
   }
+
+  /**
+   * Methode permettant de recuperer la liste des users depuis la bdd firebase
+   * Comme pour  post()  et  put() , la méthode get() retourne un Observable, mais puisqu'ici, vous allez recevoir des données, TypeScript
+   * a besoin de savoir de quel type elles seront (l'objet retourné est d'office considéré comme étant un Object).  Vous devez donc, dans
+   * ce cas précis, ajouter  <any[]>  pour dire que vous allez recevoir un array de type  any , et que donc TypeScript peut traiter cet
+   * objet comme un array : si vous ne le faites pas, TypeScript vous dira qu'un array ne peut pas être redéfini comme Object.
+   */
+  getAppareilsFromServer() {
+    this.httpClient
+        .get<any[]>('https://angularoc-dbb41.firebaseio.com/users.json')
+        .subscribe(
+          (response) => {
+            this.users = response;
+            this.emitUserSubject();
+          },
+          (error) => {
+            console.log('Erreur ! : ' + error);
+          }
+        );
+  }
 }

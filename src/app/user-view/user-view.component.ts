@@ -67,4 +67,11 @@ export class UserViewComponent implements OnInit {
   onSave() {
     this.userService.saveUsersToServer();
   }
+
+  /**
+   * Récupere les users se trouvant en bdd firebase
+   */
+  onFetch() {
+    this.userService.getAppareilsFromServer();
+  }
 }
