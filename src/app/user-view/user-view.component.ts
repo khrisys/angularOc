@@ -60,4 +60,11 @@ export class UserViewComponent implements OnInit {
       return null;
     }
   }
+
+  /**
+   * Sauvegarde les utilisateurs sur firebase
+   */
+  onSave() {
+    this.userService.saveUsersToServer();
+  }
 }

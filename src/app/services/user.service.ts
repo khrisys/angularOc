@@ -1,5 +1,11 @@
 import {Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
+/**
+ * Attention à bien rajouter @Injectable() pour que lesd appels rest fonctionnent
+ */
+@Injectable()
 export class UserService {
 
   userSubject = new Subject<any[]>();
@@ -25,6 +31,10 @@ export class UserService {
       status: 'actif'
     }
   ];
+
+  constructor(private httpClient: HttpClient) {
+  }
+
 
   /**
    * Retourne l'objet User par son id, id qui est passé en argument dans l'url
@@ -113,6 +123,23 @@ export class UserService {
     this.users.push(userObject);
     // On emet le Subject qui fait appel à la couche d'abstraction des données
     this.emitUserSubject();
+  }
 
+  /**
+   * Methode permettant d'enregistrer des users dans firebase
+   * On utilise la methode put() pour ecraser les données users à chaque clic sur le bouton. Si on utilise la methode post(), ca
+   * enregistrera en bdd à chaque clic l'ensemble des users à enregistrer.
+   * L'url du serveur doit etre complété avec ce qu'on veut enregistrer (ici, les users), suivi de .json. C'est la convention de
+   * firebase pour le format de fichier json. Les methodes post() et put() retournent un Observable, elle ne fait pas d'appel à elle toute
+   * seule.
+   * C'est en y souscrivant que l'appel est lancé.
+   * Dans la methode subscribe, on prevoit les cas ou ca fonctionne et ou ca fonctionne pas.
+   */
+  saveUsersToServer() {
+    this.httpClient.put('https://angularoc-dbb41.firebaseio.com/users.json', this.users).subscribe(() => {
+      console.log('enregistrement terminé dans firebase !');
+    }, (error) => {
+      console.log('erreur d\'enregistrement dans firebase !');
+    });
   }
 }

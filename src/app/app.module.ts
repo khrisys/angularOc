@@ -18,6 +18,7 @@ import {EditUserComponent} from './edit-user/edit-user.component';
 import {UserModelListComponent} from './user-model-list/user-model-list.component';
 import {UserModelService} from './services/user-model.service';
 import {NewUserModelComponent} from './new-user-model/new-user-model.component';
+import {HttpClientModule} from '@angular/common/http';
 
 /**
  * Declaration des routes correspondant aux composant que l'on appelle grace aux URLs
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes) //Ca dit que toutes les routes qu'on veut enregistrer dans ce projet se trouvent dans la const
     // 'appRoutes'
   ],
