@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'new-user-model', component: NewUserModelComponent},
   {path: 'edit-user', canActivate: [AuthGuardService], component: EditUserComponent},
   {path: 'not-found', component: Error404Component},
+  {path: '', canActivate: [AuthGuardService], component: UserViewComponent},
   {path: '**', redirectTo: '/not-found'} // path wildcard : redirection vers la page 404. IL EST ESSENTIEL DE METTRE LE PATH WILDCARD A
   // LA FIN DES PATH, car Angular regarde les path dans l'rodre de declaration. Si le wildcard est au milieu du tab de path, si Angular
   // tombe sur le wildcard, n'importe quelle route correspond au wildcard, et donc, tous les urls rentrés vont correspondre à ce wildcard
