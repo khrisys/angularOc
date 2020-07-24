@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 /**
- * Attention à bien rajouter @Injectable() pour que lesd appels rest fonctionnent
+ * Attention à bien rajouter @Injectable() pour que les appels rest fonctionnent vers firebase
  */
 @Injectable()
 export class UserService {
@@ -61,6 +61,9 @@ export class UserService {
   }
 
 
+  // ===============================================================
+  // Methodes métier
+  // ==============================================================
   /**
    * Defini tous les users à la retraite
    * Avec la couche d'abstraction entre données recues et traitement dans l'appli, on fait emettre le Subject. Ainsi, les components qui
@@ -125,6 +128,10 @@ export class UserService {
     this.emitUserSubject();
   }
 
+
+  // ===============================================================
+  // Appels vers bdd firebase
+  // ==============================================================
   /**
    * Methode permettant d'enregistrer des users dans firebase
    * On utilise la methode put() pour ecraser les données users à chaque clic sur le bouton. Si on utilise la methode post(), ca
