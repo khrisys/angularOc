@@ -35,6 +35,8 @@ export class NewUserModelComponent implements OnInit {
    * formulaire.
    * Pour l'ajout dynamique des hobbies, on lui ajoute un formBuilder.array([]) vide.
    *
+   * formBuilder.group() permet de creer un objet formulaire facilement (dont on peut ajouter les validators pour chaque champ, par ex).
+   *
    * Validators : Pour chaque champ du formulaire, on indique avec les Validators qu'il faut que les champs soient remplis , sinon, on ne
    * pourra passoumettre le le formulaire
    */
