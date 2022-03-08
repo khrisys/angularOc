@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "import { Subject } from 'rxjs';\nexport class UserModelService {\n  constructor() {\n    this.userModelSubject = new Subject();\n    this.users = [{\n      firstName: 'joe',\n      lastName: 'leboss',\n      email: 'baba@joe.leboss',\n      drinkPreference: 'cidre',\n      hobbies: ['lecture', 'jeux videos']\n    }];\n  }\n  /**\r\n   * Couche d'abstraction entre données recues et traitement dans l'appli. Emet une copie des données UserModel.\r\n   */\n\n\n  emitUserModel() {\n    this.userModelSubject.next(this.users.slice());\n  }\n  /**\r\n   * Ajoute un utilisateur du model User dans la liste des userModel\r\n   *\r\n   * @param userModel\r\n   */\n\n\n  addUserModel(userModel) {\n    this.users.push(userModel);\n    this.emitUserModel();\n  }\n\n}",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

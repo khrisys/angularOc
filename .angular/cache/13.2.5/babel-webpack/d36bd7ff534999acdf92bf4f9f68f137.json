@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "export class AuthService {\n  constructor() {\n    this.isAuth = false;\n  }\n  /**\r\n   * Methode async pour simuler le temps de connexion au serveur\r\n   */\n\n\n  signIn() {\n    return new Promise((resolve, reject) => {\n      setTimeout(() => {\n        this.isAuth = true;\n        resolve(true);\n      }, 2000);\n    });\n  }\n  /**\r\n   * Methode non asynchrone pour simuler la deconnexion\r\n   */\n\n\n  signOut() {\n    this.isAuth = false;\n  }\n\n}",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}

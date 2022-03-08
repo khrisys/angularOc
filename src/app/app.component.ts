@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AppareilService} from './services/appareil.service';
 import {Observable, Subscription} from 'rxjs';
-import 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -55,13 +54,18 @@ export class AppComponent implements OnInit, OnDestroy {
    * Subscription
    */
   ngOnInit(): void {
-    const counter = Observable.interval(1000);
+
+    const counter = new Observable(observer => {
+      setTimeout(() => {
+        observer.next(this.secondes);
+      }, 1000);
+    });
 
     // subscribe() comprend 3  fonctions anonymes, pour gerer les 3 types d'informations que cet Observable peut envoyer
     // Subsbription permet d'eviter les bugs dus à Observable de comportement infini. En effet, en ayant créé counterSubscription, on
     // peut desormais la detruire (dans la methode qu'on va creer plus bas), et ainsi eviter de gros bugs
     this.counterSubscription = counter.subscribe((value) => {
-        this.secondes = value;
+        this.secondes;
       },
       (error) => {
         console.log('Uh-Oh, an error occured : ' + error);

@@ -1,0 +1,7 @@
+{
+  "ast": null,
+  "code": "export class UserModel {\n  /**\r\n   * Les params declarés 'public', Angular va creer des propriétés avec le nom des params dans le model User\r\n   *\r\n   * @param firstName\r\n   * @param lastName\r\n   * @param email\r\n   * @param drinkPreference\r\n   * @param hobbies : param optionnel noté avec le '?'. Les hobbies sont stockés sous forme d'array\r\n   */\n  constructor(firstName, lastName, email, drinkPreference, hobbies) {\n    this.firstName = firstName;\n    this.lastName = lastName;\n    this.email = email;\n    this.drinkPreference = drinkPreference;\n    this.hobbies = hobbies;\n  }\n\n}",
+  "map": null,
+  "metadata": {},
+  "sourceType": "module"
+}
