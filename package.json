@@ -24,7 +24,7 @@
     "express": "^4.17.3",
     "follow-redirects": "^1.14.9",
     "ini": "^2.0.0",
-    "json-schema": "0.2.3",
+    "json-schema": "^0.2.3",
     "jszip": "^3.7.1",
     "path": "^0.12.7",
     "resolve-url": "^0.2.1",
